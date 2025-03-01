@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <title>CreateQuizz+</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="HomePage.html">Quizze</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="ProfilePage.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="CreateQuiz.html">CreateQuiz+</a>
+                    </li>
+                </ul>
+
+                <button onclick="logOutFun()" class="btn btn-outline-danger" type="button">LogOut</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div id="msg2" class="alert alert-success text-center d-none">
+            Quiz added successfully!
+        </div>
+        <form id="que-form" class="container mt-3 border p-4 rounded">
+            <div class="mb-3">
+            </div>
+            <label>Quiz Name:</label>
+            <input type="text" id="quiz-name" name="quiz-name" placeholder="Enter Name">
+            <br><br>
+            <label>Difficulty level:</label>
+            <select id="difficulty" name="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="addQuestionSet()" class="rounded-pill btn btn-success">Add +</button>
+            <button type="button" onclick="removeQuestionSet()" class="rounded-pill btn btn-danger">Sub -</button>
+            <br><br>
+
+            <div id="question-container">
+                <div class="question-set">
+                    <input type="text" class="question" placeholder="Enter Question" size="50">
+                    <br>
+                    <input type="text" name="optionAText" class="optionAText" placeholder="optionA">
+                    <input type="radio" name="option-0" value="A">
+                    <br>
+                    <input type="text" name="optionBText" class="optionBText" placeholder="optionB">
+                    <input type="radio" name="option-0" value="B">
+                    <br>
+                    <input type="text" name="optionCText" class="optionCText" placeholder="optionC">
+                    <input type="radio" name="option-0" value="C">
+                    <br>
+                    <input type="text" name="optionDText" class="optionDText" placeholder="optionD">
+                    <input type="radio" name="option-0" value="D">
+                    <br><br>
+                </div>
+            </div>
+            <button type="button" onclick="saveQuestions()" class="btn btn-outline-success mt-3">Submit</button>
+            <!-- <button type="submit" class="btn btn-outline-success mt-3">Submit</button> -->
+        </form>
+    </div>
+
+</body>
+<script src="../backend/CreateQuizScript.js"></script>
+<script>
+    function logOutFun() {
+        let decide = confirm('Want to LogOut?');
+        if (decide) {
+            window.location.href = "SignIn.html";
+        }
+    }
+</script>
+
+</html>
